@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Homes
+    Home
 {% endblock  %}
 {% block  body %}
+    <!-- <h2> welcome {{current_user.username}}</h2> -->
     <div class = "container my-3">
         <h2>Add a Todo</h2>
-        <form action="/" method="POST">
+        <form action="/todos/{{current_user.username}}" method="POST">
             <div class="mb-3">
               <label for="title" class="form-label">Todo Title</label>
               <input type="text" class="form-control" name = "title" id="title" aria-describedby="emailHelp">
@@ -23,7 +24,7 @@
     <div class = "container my-3">
         <h2> Your Todos</h2>
         
-        {% if allTodo|length == 0 %}
+        {% if 4 == 0 %}
             NO TODO'S MADE
     
         {% else %}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <style>
+    
+    </style>
+    <link rel="stylesheet" href="./static/css/style.css" />
+</head>
+<body> 
+    <!-- <nav>
+    <ul>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register">Create account</a></li>
+    </ul>
+    </nav> -->
+
+    
+    {% if current_user.is_authenticated %}
+
+    <div class="backdrop"></div>
+        <div class="modal">
+            <div class="modal__content centered">
+                <h1 style="align-items: center;"> Hello {{current_user.username}},   <br/> You are logged in and you can check and add your todos <a href="/todos/{{current_user.username}}"> here</a><h1>
+                
+              </div>
+        </div>
+
+
+
+
+
+
+
+
+
+    
+        <!-- <h1>You are logged in</h1>
+        <h2>Hello {{current_user.username}}, You can check and add your todos <a href="/todos/{{current_user.username}}">here</a></h2>
+        <a href="/logout">Logout</a> -->
+    
+    {% else %}
+    <nav>
+        <ul>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Create account</a></li>
+        </ul>
+        </nav>
+    <h1>You are not logged in</h1>
+    {% endif %}
+    
+</body>
+</html>
