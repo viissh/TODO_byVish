@@ -19,7 +19,7 @@ class Todo(db.Model):
 
 
 @app.route('/',methods=['GET','POST'])
-def hello_world():
+def create():
     if request.method == 'POST':
         title = request.form['title']
         desc = request.form['desc']
@@ -57,6 +57,17 @@ def products():
 #allTodo = Todo.query.all()
 #print(allTodo)
     return 'this is a products page'
+
+@app.route('/search', methods=['GET','POST'])
+def searchTodoByTitle():
+    if request.method == 'POST':
+        todosTitle = request.form['todosTitle']
+        
+        todo = Todo.query.filter_by(title = todosTitle).first()
+        return render_template('testingDevelopment.html',todo = todo)
+        
+
+
 
 
 if __name__ == "__main__":
